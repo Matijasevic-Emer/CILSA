@@ -8,6 +8,7 @@
   --submit-bg-color: #42b72a; /* Green Button */
   --submit-bg-hover-color: #36a420; /* Darker Green Button */
   --submit-text-color: #ffffff; /* White */
+  --text-secondary-color: white;
 }
 
 * {
@@ -134,5 +135,5 @@ footer h2 {
   font-size: small;
   font-weight: 600;
   padding: 10px;
-  color: #ffffff;
+  color: --text-secondary-color;
 }
