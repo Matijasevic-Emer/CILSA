@@ -51,6 +51,6 @@ const changeStyle = (ck) => {
         document.documentElement.style.setProperty('--form-bg-color', '#ffffff'); // Color original
         document.documentElement.style.setProperty('--border-color', '#ccd0d5'); // Color original
         document.documentElement.style.setProperty('--text-color', '#1c1e21'); // Color original
-        document.documentElement.style.setProperty('--submit-bg-color', '#42b72')
+        document.documentElement.style.setProperty('--submit-bg-color', '#42b72a')
     }
 }
