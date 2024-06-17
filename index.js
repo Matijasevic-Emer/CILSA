@@ -32,3 +32,25 @@ const checkField = (event) => {
     }
     checked ? buttonSubmit.value = "👌👌👌" : event.preventDefault();
 }
+
+const changeStyle = (ck) => {
+    if (ck.checked) {
+        document.documentElement.style.setProperty('--primary-bg-color', '#000');
+        document.documentElement.style.setProperty('--secondary-bg-color', '#fff');
+        document.documentElement.style.setProperty('--tertiary-bg-color', '#121313');
+        document.documentElement.style.setProperty('--form-bg-color', '#fff');
+        document.documentElement.style.setProperty('--border-color', '#ccd0d5');
+        document.documentElement.style.setProperty('--text-color', '#f00');
+        document.documentElement.style.setProperty('--submit-bg-color', '#000');
+        document.documentElement.style.setProperty('--submit-bg-hover-color', '#fff');
+        document.documentElement.style.setProperty('--submit-text-color', '#fff');
+    } else {
+        document.documentElement.style.setProperty('--primary-bg-color', '#3b5998'); // Color original
+        document.documentElement.style.setProperty('--secondary-bg-color', '#ffffff'); // Color original
+        document.documentElement.style.setProperty('--tertiary-bg-color', '#f0f2f5'); // Color original
+        document.documentElement.style.setProperty('--form-bg-color', '#ffffff'); // Color original
+        document.documentElement.style.setProperty('--border-color', '#ccd0d5'); // Color original
+        document.documentElement.style.setProperty('--text-color', '#1c1e21'); // Color original
+        document.documentElement.style.setProperty('--submit-bg-color', '#42b72')
+    }
+}
