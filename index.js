@@ -1,5 +1,5 @@
 const checkField = (event) => {
-    const onlyLettersPattern = /^[A-Za-z]+$/
+    const onlyLettersPattern = /^[A-Za-z-á-é-í-ó-ú]+$/
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const name = document.getElementById("name").value.trim()
     const surname = document.getElementById("surname").value.trim()
