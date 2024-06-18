@@ -135,5 +135,5 @@ footer h2 {
   font-size: small;
   font-weight: 600;
   padding: 10px;
-  color: --text-secondary-color;
+  color: var(--text-secondary-color);
 }
