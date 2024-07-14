@@ -1,45 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Entrega1</title>
-    <link type="image/png" sizes="16x16" rel="icon" href="./favicon-16.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
-    <script src="index.js"></script>
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16.png" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <header>
-      <h1 class="brand">CILSA : Curso Full Stack Developer - Clase 1</h1>
-      <div class="style-container">
-        <label for="estilo-ac">Estilo Alto Contraste</label>
-        <input
-          type="checkbox"
-          name="estilo-ac"
-          id="estilo-ac"
-          onchange="changeStyle(this)"
-        />
+  <body class="bg-light text-dark">
+    <header class="bg-primary text-white py-3">
+      <div class="container d-flex justify-content-between align-items-center">
+        <h1 class="h3">CILSA : Curso Full Stack Developer - Clase 1</h1>
+        <div class="form-check form-switch">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="estilo-ac"
+            onchange="changeStyle(this)"
+          />
+          <label class="form-check-label" for="estilo-ac"
+            >Estilo Alto Contraste</label
+          >
+        </div>
       </div>
     </header>
-    <div class="form-container">
-      <h3>Formulario de Datos Personales</h3>
-      <form onsubmit="checkField(event)">
-        <label for="name">Nombre</label>
-        <input required id="name" type="text" /><br />
-        <label for="surname">Apellido</label>
-        <input required id="surname" type="text" /><br />
-        <label for="email">Email</label>
-        <input required type="email" id="email" /><br />
-        <label for="birthdate">Fecha Nacimiento</label>
-        <input required type="date" id="birthdate" /><br />
-        <label for="country">País de Residencia</label>
-        <input required type="text" id="country" /><br />
-        <button id="submit" class="submit" type="submit">ENVIAR</button>
-      </form>
-    </div>
-    <footer>
-      <h2>Alumno: Emerson Gabriel Matijasevic DNI:40586118</h2>
+    <main class="container my-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-12">
+          <div class="card p-4">
+            <h3 class="card-title text-center">
+              Formulario de Datos Personales
+            </h3>
+            <form
+              onsubmit="checkField(event)"
+              class="needs-validation"
+              novalidate
+            >
+              <div class="form-group">
+                <label for="name">Nombre</label>
+                <input required id="name" type="text" class="form-control" />
+                <div class="invalid-feedback">Por favor ingrese su nombre.</div>
+              </div>
+              <div class="form-group">
+                <label for="surname">Apellido</label>
+                <input required id="surname" type="text" class="form-control" />
+                <div class="invalid-feedback">
+                  Por favor ingrese su apellido.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input required type="email" id="email" class="form-control" />
+                <div class="invalid-feedback">
+                  Por favor ingrese un email válido.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="birthdate">Fecha Nacimiento</label>
+                <input
+                  required
+                  type="date"
+                  id="birthdate"
+                  class="form-control"
+                />
+                <div class="invalid-feedback">
+                  Por favor ingrese su fecha de nacimiento.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="country">País de Residencia</label>
+                <input required type="text" id="country" class="form-control" />
+                <div class="invalid-feedback">
+                  Por favor ingrese su país de residencia.
+                </div>
+              </div>
+              <button
+                id="submit"
+                class="btn btn-success btn-block"
+                type="submit"
+              >
+                ENVIAR
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="bg-primary text-white text-right py-3">
+      <div class="container">
+        <h2 class="h6">Alumno: Emerson Gabriel Matijasevic DNI:40586118</h2>
+      </div>
     </footer>
+    <script src="index.js"></script>
   </body>
 </html>
