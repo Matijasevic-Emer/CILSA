@@ -1,5 +1,9 @@
-const msg = document.getElementById('msg');
+const toastLiveExample = document.getElementById('liveToast')
+const toast = new bootstrap.Toast(toastLiveExample)
+
 const checkField = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
     const onlyLettersPattern = /^[A-Za-z-á-é-í-ó-ú]+$/;
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const name = document.getElementById("name").value.trim();
@@ -14,52 +18,57 @@ const checkField = (event) => {
             checked = false;
             customAlert("El campo 'Nombre' solo acepta letras. Por favor corrija");
         }
+        if (name.length < 3) { customAlert("El campo 'Nombre' es muy corto. Por favor corrija"); checked = false; }
         if (!onlyLettersPattern.test(surname)) {
             checked = false;
             customAlert("El campo 'Apellido' solo acepta letras. Por favor corrija");
         }
+        if (surname.length < 3) { customAlert("El campo 'Apellido' es muy corto. Por favor corrija"); checked = false; }
         if (!onlyLettersPattern.test(country)) {
             checked = false;
             customAlert("El campo 'País de residencia' solo acepta letras. Por favor corrija");
         }
+        if (country.length < 3) { customAlert("El campo 'País de residencia' es muy corto. Por favor corrija"); checked = false; }
         if (!emailPattern.test(email)) {
             checked = false;
             customAlert("El campo Email no corresponde a un correo electrónico. Por favor corrija");
+        }
+        const birthdateDate = new Date(birthdate);
+        const currentDate = new Date();
+        if (birthdateDate > currentDate) {
+            checked = false;
+            customAlert("La fecha de nacimiento no puede ser una fecha futura. Por favor corrija");
         }
     } else {
         checked = false;
         customAlert("Por favor complete los campos del formulario.");
     }
 
+
     if (checked) {
-        okAlert("Exito! tu mensjae fue enviado!!")
+        event.target.classList.remove("was-validated");
+        okAlert("Exito! tu formulario fue enviado!!");
+        setTimeout(() => {
+            event.target.reset(); // Reiniciar el formulario
+            toast.hide(); // Ocultar el toast después de reiniciar el formulario
+        }, 3000);
+
     } else {
-        event.preventDefault();
-        event.stopPropagation();
+        event.target.classList.add("was-validated");
     }
 
-
-    // Activar las clases de Bootstrap para mostrar los errores
-    event.target.classList.add("was-validated");
 };
 
 const customAlert = (msg) => {
-    console.log(msg);
-
+    document.getElementById('msg-body').innerText = msg
+    toast.show()
 }
 
 const okAlert = (msg) => {
-
-    msg.innerHTML = `
-        <div class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="d-flex">
-                <div class="toast-body">
-                    ${msg}
-                </div>
-                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-        </div>
-    `;
+    toastLiveExample.classList.remove("text-bg-danger")
+    toastLiveExample.classList.add("text-bg-success")
+    document.getElementById('msg-body').innerText = "Excelente! Tu mensaje fue enviado!"
+    toast.show()
 }
 
 
