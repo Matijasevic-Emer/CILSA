@@ -1,3 +1,4 @@
+const msg = document.getElementById('msg');
 const checkField = (event) => {
     const onlyLettersPattern = /^[A-Za-z-á-é-í-ó-ú]+$/;
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -30,26 +31,35 @@ const checkField = (event) => {
         customAlert("Por favor complete los campos del formulario.");
     }
 
-    if (!checked) {
+    if (checked) {
+        okAlert("Exito! tu mensjae fue enviado!!")
+    } else {
         event.preventDefault();
         event.stopPropagation();
     }
+
 
     // Activar las clases de Bootstrap para mostrar los errores
     event.target.classList.add("was-validated");
 };
 
 const customAlert = (msg) => {
-    let msgFail = document.getElementById('msgFail');
-    msgFail.classList.remove('invisible');  // Quitar la clase 'invisible'
-    msgFail.innerHTML += msg;
-    document.getElementById('msgOk').classList.add('invisible');
+    console.log(msg);
+
 }
 
-const okAlert = () => {
-    let msgOk = document.getElementById('msgOk');
-    msgOk.classList.remove('invisible');
-    document.getElementById('msgFail').classList.add('invisible');
+const okAlert = (msg) => {
+
+    msg.innerHTML = `
+        <div class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    ${msg}
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    `;
 }
 
 

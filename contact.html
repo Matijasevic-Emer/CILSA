@@ -71,38 +71,41 @@
       >
         <h1 class="display-4 text-center">Contacto</h1>
       </div>
-      <div>
-        <div id="msgOK" class="alert alert-dismissible alert-success invisible">
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="alert"
-          ></button>
-          <strong>Excelete!</strong> Tu mensaje fue enviado!
+
+      <div class="p-5">
+        <div id="msg">
+          <div
+            class="toast"
+            role="alert"
+            aria-live="assertive"
+            aria-atomic="true"
+          >
+            <div class="toast-header">
+              <img src="./favicon-16.png" class="rounded me-2" alt="..." />
+              <strong class="me-auto">Bootstrap</strong>
+              <small class="text-body-secondary">11 mins ago</small>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="toast"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="toast-body">Hello, world! This is a toast message.</div>
+          </div>
         </div>
-        <div
-          id="msgFail"
-          class="alert alert-dismissible alert-danger invisible"
-        >
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="alert"
-          ></button>
-          <strong>Ups!</strong>
-        </div>
-      </div>
-      <div class="">
         <main
           class="container-fluid d-flex justify-content-center align-items-center"
         >
           <div class="row justify-content-center">
-            <div class="col-lg-6 col-md-8 col-sm-12">
+            <div class="">
               <div class="card p-4">
-                <h3 class="card-title text-center">
-                  Formulario de Datos Personales
-                </h3>
-                <form onsubmit="checkField(event)" class="needs-validation">
+                <h3 class="text-center">Formulario de Datos Personales</h3>
+                <form
+                  novalidate
+                  onsubmit="checkField(event)"
+                  class="needs-validation"
+                >
                   <div class="form-group m-3">
                     <label for="name">Nombre</label>
                     <input
@@ -162,14 +165,15 @@
                     <div class="invalid-feedback">
                       Por favor ingrese su país de residencia.
                     </div>
+                    <div class="d-grid gap-2">
+                      <button
+                        id="submit"
+                        class="m-3 btn btn-outline-success btn-block"
+                      >
+                        ENVIAR
+                      </button>
+                    </div>
                   </div>
-                  <button
-                    id="submit"
-                    class="m-3 btn btn-success btn-block"
-                    type="submit"
-                  >
-                    ENVIAR
-                  </button>
                 </form>
               </div>
             </div>
